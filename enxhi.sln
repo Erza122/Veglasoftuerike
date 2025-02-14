@@ -1,31 +1,64 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35327.3
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{51A5C071-9272-489F-9B58-6289E19B9EA5}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Debug|x64.ActiveCfg = Debug|x64
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Debug|x64.Build.0 = Debug|x64
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Debug|x86.ActiveCfg = Debug|Win32
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Debug|x86.Build.0 = Debug|Win32
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Release|x64.ActiveCfg = Release|x64
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Release|x64.Build.0 = Release|x64
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Release|x86.ActiveCfg = Release|Win32
-		{51A5C071-9272-489F-9B58-6289E19B9EA5}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FE77C090-5E10-4DE2-A5DC-6D0D9384EC05}
-	EndGlobalSection
-EndGlobal
+﻿#include <iostream>
+#include <cstdlib>   
+#include <ctime>     
+
+using namespace std;
+
+// funksioni per zgjedhjen e kompjuterit
+int getComputerChoice() {
+    return rand() % 3;  
+}
+
+// funksuoni per te marre rezultatin e lojes
+string getResult(int playerChoice, int computerChoice) {
+    if (playerChoice == computerChoice) {
+        return "Eshte barazim!";
+    }
+    if ((playerChoice == 0 && computerChoice == 2) ||
+        (playerChoice == 1 && computerChoice == 0) ||
+        (playerChoice == 2 && computerChoice == 1)) {
+        return "Ti fiton!";
+    }
+    return "Ti humbet!";
+}
+
+int main() {
+    srand(static_cast<unsigned int>(time(0)));  
+
+    int playerChoice;
+    int computerChoice;
+
+    cout << "Miresevini ne lojen Gur, Leter, Gershere!" << endl;
+    cout << "Beni zgjidhjen tuaj:" << endl;
+    cout << "0. Gur" << endl;
+    cout << "1. Leter" << endl;
+    cout << "2. Gershere" << endl;
+    cout << "Shtypni 0, 1, or 2: ";
+    cin >> playerChoice;
+
+    if (playerChoice < 0 || playerChoice > 2) {
+        cout << "Zgjedhje invalide! Ju lutem zgjidhni 0, 1, ose 2." << endl;
+        return 1; 
+    }
+
+   
+    computerChoice = getComputerChoice();
+
+    // shtypja e zgjedhjeve
+    cout << "Ju keni zgjedhur: ";
+    if (playerChoice == 0) cout << "Gur" << endl;
+    else if (playerChoice == 1) cout << "Leter" << endl;
+    else cout << "Gershere" << endl;
+
+    cout << "Kompjuteri ka zgjedhur: ";
+    if (computerChoice == 0) cout << "Gur" << endl;
+    else if (computerChoice == 1) cout << "Leter" << endl;
+    else cout << "Gershere" << endl;
+
+    // shtypja e rezulatit te lojes
+    cout << getResult(playerChoice, computerChoice) << endl;
+
+    return 0;
+}
+
+
