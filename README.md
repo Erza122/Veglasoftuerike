@@ -17,3 +17,22 @@ Fork the repo, make changes, and submit a pull request.
 ## License
 
 Open source, feel free to modify.
+
+# Gjetja e numrit ne C++
+Një lojë e thjeshtë për të gjetur një numër të fshehtë.
+
+## How to Run
+
+Sigurohuni që keni një mjedis zhvillimi për C++, kopjo kodin në një skedar, p.sh. gjeni_numrin.cpp dhe ekzekuto kodin.
+
+## Controls
+
+Shtyp një numër nga 1-100 dhe shtyp Enter, merr sugjerime nëse numri është më i madh apo më i vogël dhe vazhdoni deri sa e gjeni numrin e saktë.
+
+## Contributing
+
+Bëj ndryshime dhe testoni kodin për përmirësime, apo dërgo një pull request (PR) nëse keni një repo publike
+
+## License
+
+Burim i hapur.
